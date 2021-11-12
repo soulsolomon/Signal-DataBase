@@ -32,7 +32,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
     
    ### Simulated logger with a triggering value of 0 and 1
   <p align="center">
-  <img width="600" height="500"  src="./Noise.png">
+  <img width="600" height="500"  src="./Logging.png">
   <p>
     
    # License
