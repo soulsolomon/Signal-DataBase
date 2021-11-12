@@ -16,5 +16,11 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
   ## Experiments
   ### Simulated signal with DelataT 0.1
-  
-
+  <p align="center">
+  <img width="600" height="500"  src="./Delta01.png">
+  <p>
+    
+  ### Simulated noise with noise = 0.0, 0.1, 1 
+  <p align="center">
+  <img width="600" height="500"  src="./Noise.png">
+  <p>
