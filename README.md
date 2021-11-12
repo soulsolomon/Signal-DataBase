@@ -24,3 +24,18 @@ Quick, reliable data logging is a key requirement for tests from component chara
   <p align="center">
   <img width="600" height="500"  src="./Noise.png">
   <p>
+    
+   ### Filtering with Moving average 
+  <p align="center">
+  <img width="600" height="500"  src="./average.png">
+  <p>
+    
+   ### Simulated logger with a triggering value of 0 and 1
+  <p align="center">
+  <img width="600" height="500"  src="./Noise.png">
+  <p>
+    
+   # License
+    Private
+    
+   
