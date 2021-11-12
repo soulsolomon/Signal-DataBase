@@ -13,4 +13,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
 <img  src="./image.png">
 <p>
 
+  
+  ## Experiments
+  ### Simulated signal with DelataT 0.1
+  
 
