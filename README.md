@@ -9,6 +9,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
 * Storing in local DB
 * Visualization through a local Web-server
 
-<img style="float: right;" src="141443149-5b1e4d2d-63b5-4533-b464-c59b0ab4f652.png">
+<p align="center">
+<img  src="141443149-5b1e4d2d-63b5-4533-b464-c59b0ab4f652.png">
+<p>
 
 
