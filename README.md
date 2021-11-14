@@ -10,7 +10,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
 * Visualization through a local Web-server
 
 <p align="center">
-<img  src="./image.png">
+<img widith=600  src="./image.png">
 <p>
 
   
