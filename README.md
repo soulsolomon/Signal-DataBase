@@ -59,11 +59,12 @@ Quick, reliable data logging is a key requirement for tests from component chara
   ## License 
   GNU General Public License V3.0
     
-  Free Design Template used from Black Dashboard Flask - Provided by Creative Tim and AppSeed
+  
   
   ## Authors
   
   Solomon Gugsa (private work)
+  Free Design Template used from Black Dashboard Flask - Provided by Creative Tim and AppSeed
   
   ## Version
   
