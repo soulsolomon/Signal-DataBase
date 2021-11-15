@@ -28,16 +28,12 @@ Quick, reliable data logging is a key requirement for tests from component chara
   <img   src="./Screen2.png">
   <p>
     
-  ## Prerequisites
-  
-  1. Install SQLite
-  2. Install ______
-  
   ## Setting Up
   
-  1. Make sure SQLite is running
+  1. Change home directory to \web-server\black-dashboard-flask 
   2. Install dependencies:  pip3 install -r requirements.txt
   3. set FLASK_APP=run.py
+  4. run run.py
   
   ## TASKS YET TO BE ACCOMPLISHED
 
