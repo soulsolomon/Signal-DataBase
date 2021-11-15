@@ -29,11 +29,11 @@ Quick, reliable data logging is a key requirement for tests from component chara
   ## TASKS YET TO BE ACCOMPLISHED
 
     Backend
-
+    [Create and simulate Signals ] 
     [Create single database class for different DBMS] 
     [Create MarinaDB database class] 
     [Create SQLite database class] 
-    [ ] 
+    
     [ ] 
     [ ] 
 
