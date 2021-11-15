@@ -62,7 +62,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
   ## Authors
   
-  Private consult
+  Solomon Gugsa
   
   ## Version
   
