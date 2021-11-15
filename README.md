@@ -46,7 +46,6 @@ Quick, reliable data logging is a key requirement for tests from component chara
     [Create single database class for different DBMS - Done!] 
     [Create MarinaDB database class - Done!] 
     [Create SQLite database class - Done!] 
-    
     [ ] 
     [ ] 
 
