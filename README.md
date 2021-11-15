@@ -42,17 +42,17 @@ Quick, reliable data logging is a key requirement for tests from component chara
   ## TASKS YET TO BE ACCOMPLISHED
 
     Backend
-    [Create and simulate Signals ] 
-    [Create single database class for different DBMS] 
-    [Create MarinaDB database class] 
-    [Create SQLite database class] 
+    [Create and simulate Signals - Done!] 
+    [Create single database class for different DBMS - Done!] 
+    [Create MarinaDB database class - Done!] 
+    [Create SQLite database class - Done!] 
     
     [ ] 
     [ ] 
 
     Frontend
-    [Setup FLASK] 
-    [Create a live stream of sensor data recored] 
+    [Setup FLASK - Done!] 
+    [Create a live stream of sensor data recored - partially Done!] 
     [ ] 
     [ ] 
   
