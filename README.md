@@ -14,7 +14,18 @@ Quick, reliable data logging is a key requirement for tests from component chara
 <img widith=600  src="./image.png">
 <p>
 
+  <br />
+  ## Examples
   
+  <p align="center">
+  <img   src="./Screen1.png">
+  <p>
+    
+    <br />
+    
+    <p align="center">
+  <img   src="./Screen2.png">
+  <p>
   ## Prerequisites
   
   1. Install SQLite
