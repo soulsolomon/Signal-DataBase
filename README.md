@@ -35,9 +35,9 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
   ## Setting Up
   
-  1. Create ______
-  2. Make sure SQLite is running
-  3. Install dependencies:
+  1. Make sure SQLite is running
+  2. Install dependencies:  pip3 install -r requirements.txt
+  3. set FLASK_APP=run.py
   
   ## TASKS YET TO BE ACCOMPLISHED
 
