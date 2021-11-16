@@ -1,0 +1,191 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    
+    <script>{{data[0]}}</script>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Number of data: <span id="sensor01_numberofdata">{{data[1]}}</span></h5>
+                <h2 class="card-title">
+                  Sensor <button id="0" style="display:none">hi</button>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartBig1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Number of data: <span id="sensor02_numberofdata">{{data[2]}}</span></h5>
+                <h2 class="card-title">
+                  Logged based on trigger 
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartBig2"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+    <div class="row" style="display:none;">
+      <div class="col-lg-12">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Total Logged Data</h5>
+            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> <span id="dataLogger_TotalLoggedData">763,215</span></h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLinePurple"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12" style="display:none">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Last time data recieved</h5>
+            <h3 class="card-title">2021-11-14 09:10:11</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="CountryChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4"  style="display:none">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Completed Tasks</h5>
+            <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLineGreen"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+<script>
+ 
+  let sensor01_numberofdata = {{data[1]}};
+  let sensor02_numberofdata = {{data[2]}};
+
+  function getDataFromDB(){
+    if(Sensor_01_lastID < Sensor_02_lastID)
+      Sensor_01_lastID = Sensor_02_lastID;
+
+    $.get("\\get-data?last=" + Sensor_01_lastID, function(data){
+      changeValue(data);
+  });
+  }
+
+  function changeValue(data){
+
+    data = data.replace(/'/g,'"');
+
+    data = JSON.parse(data);
+    emptyArr = [,];
+    
+    if(data["Sensor 01"].length > 0){
+      for(let i=0; i < data["Sensor 01"].length; i++){
+        
+        Sensor_01_xaxis.push('');
+        
+        Sensor_01_yaxis.push(data["Sensor 01"][i][2]);
+        
+        Sensor_01_lastID = data["Sensor 01"][i][0];
+        sensor01_numberofdata++;
+      }
+      $("#sensor01_numberofdata").html(sensor01_numberofdata);
+
+    }
+
+    if(data["Sensor 02"].length > 0){
+      for(let i=0; i < data["Sensor 02"].length; i++){
+        Sensor_02_xaxis.push('');
+        Sensor_02_yaxis.push(data["Sensor 02"][i][2]);
+        Sensor_02_lastID = data["Sensor 02"][i][0];
+        sensor02_numberofdata++;
+
+      }
+      $("#sensor02_numberofdata").html(sensor02_numberofdata);
+    }
+
+    //alert(data["Sensor 01"].length );
+
+    //Sensor_01_xaxis = ['01', 'FEB', 'Mar', 'Apr', 'May'];
+    //Sensor_01_yaxis = [1,4,2,9,-2];
+  
+    console.log(data);
+
+    //Sensor_02_xaxis = ['JAN', 'FEB', 'Mar'];
+    //Sensor_02_yaxis = [1,4,2];
+
+    //Sensor_02_xaxis= Sensor_02_xaxis.concat(Sensor_02_xaxis);
+    //Sensor_02_yaxis= Sensor_02_yaxis.concat(Sensor_02_yaxis);
+
+    $("#0").click();
+     //alert("2");
+  }
+
+  setInterval("getDataFromDB()", 1000);
+
+</script
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}
