@@ -40,9 +40,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
     # (Windows) set FLASK_ENV=development
     # (Powershell) $env:FLASK_ENV = "development"
     
-  3. set FLASK_APP=run.py for Windows or export FLASK_ENV=development for Unix/Mac
-  4. run run.py
-  5. Create username and password 
+  3. run run.py
+  4. Create username and password 
   
   
    ### Back-END
