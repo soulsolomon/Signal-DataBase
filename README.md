@@ -30,16 +30,22 @@ Quick, reliable data logging is a key requirement for tests from component chara
     
   ## Setting Up
     
-   Front-END
+  ### Front-END
   
   1. Change home directory to \web-server\black-dashboard-flask 
   2. Install dependencies:  pip3 install -r requirements.txt
+    
+    Set up the DEBUG environment
+    # (Unix/Mac) export FLASK_ENV=development
+    # (Windows) set FLASK_ENV=development
+    # (Powershell) $env:FLASK_ENV = "development"
+    
   3. set FLASK_APP=run.py for Windows or export FLASK_ENV=development for Unix/Mac
   4. run run.py
   5. Create username and password 
   
   
-    Back-END
+   ### Back-END
     
    1. change home directory to \sensor
    2. Run main.py
