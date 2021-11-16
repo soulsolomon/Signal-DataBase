@@ -18,16 +18,15 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
   ## Examples
   
-  <p align="center">
-  <img   src="./Screen1.png">
-  <p>
-    
-  
-    
-  <p align="center">
-  <img   src="./Screen2.png">
-  <p>
-    
+ 
+
+
+
+![](ezgif.com-gif-maker (1).gif)
+
+
+
+
   ## Setting Up
     
   ### Front-END
