@@ -21,8 +21,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
  
 
 
+<img widith=800  src="./test.gif">
 
-![](ezgif.com-gif-maker (1).gif)
 
 
 
