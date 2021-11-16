@@ -29,6 +29,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
   <p>
     
   ## Setting Up
+    
+   Front-END
   
   1. Change home directory to \web-server\black-dashboard-flask 
   2. Install dependencies:  pip3 install -r requirements.txt
@@ -36,9 +38,11 @@ Quick, reliable data logging is a key requirement for tests from component chara
   4. run run.py
   5. Create username and password 
   
-    ## Generate signal
-    1. change home directory to \sensor
-    2. Run main.py
+  
+    Back-END
+    
+   1. change home directory to \sensor
+   2. Run main.py
   
   ## TASKS YET TO BE ACCOMPLISHED
 
@@ -47,14 +51,11 @@ Quick, reliable data logging is a key requirement for tests from component chara
     [Create single database class for different DBMS - Done!] 
     [Create MarinaDB database class - Done!] 
     [Create SQLite database class - Done!] 
-    [ ] 
-    [ ] 
 
     Frontend
     [Setup FLASK - Done!] 
     [Create a live stream of sensor data recored - partially Done!] 
-    [ ] 
-    [ ] 
+ 
   
   ## License 
   GNU General Public License V3.0
