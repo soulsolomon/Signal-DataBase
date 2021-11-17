@@ -20,8 +20,8 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
  
 
-
-<img widith=1000  src="./test2.gif">
+<img widith=1000  src="./image2.gif">
+<img widith=1000  src="./test.gif">
 
 
 
