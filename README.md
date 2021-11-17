@@ -45,7 +45,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
     # (Powershell) $env:FLASK_ENV = "development"
     
   3. run run.py
-  4. Create username and password 
+  4. Create username and password or use 'admin' as a username and 'pass' as a password
   
   
    ### Back-END
