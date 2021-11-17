@@ -14,6 +14,12 @@ import sensor.sensorData
 def index():
     return dataLogger()
 
+
+
+
+
+
+
 @blueprint.route('/data-logger')
 @login_required
 def dataLogger():
@@ -26,13 +32,42 @@ def dataLogger():
         jsStr += getDataForJS(sensorName[0])
     
     data = list()
-    data.append(jsStr)
+    data.append(jsStr) 
     
     for sensorName in sensors:
         data.append(countData(sensorName[0]))
+                                              
     
 
     return render_template('home/data-logger.html', data = data, segment='data-logger' )
+
+
+
+
+
+
+
+
+@blueprint.route('/get-log-data', methods = ['GET'])
+@login_required
+def getLogData():
+    last_id = request.args.get('last_id')
+    if(last_id is None):
+        last_id = 0
+    logData = sensor.sensorData.getLogData(last_id)
+    
+    logData = str(logData)
+    
+    # Make json readable for JS
+    logData = logData.replace("'",'"')
+    
+    return str(logData)
+
+
+
+
+
+
 
 
 
@@ -51,9 +86,17 @@ def getData():
             
     return str(data)
 
+
+
+
+
+
+
 def getDataForJS(sensorName):
     sensorData = sensor.sensorData.getData(sensorName, 0)
     sensorID = sensorName.replace(" ","_")
+    
+    
     
     lastID = 0
     jsStr = sensorID + "_yaxis = ["
@@ -75,14 +118,30 @@ def getDataForJS(sensorName):
     #String for JS
     return jsStr
 
+
+
+
+
+
+
+
+
 def countData(sensorName):
     sensorData = sensor.sensorData.getData(sensorName, 0)
     return len(sensorData)
 
+
+
+
+
+
 def getDistinctSensors():
-        return sensor.sensorData.getDistinctSensors()
+    return sensor.sensorData.getDistinctSensors()
 
 
+
+
+#======================================================================================================
 
 @blueprint.route('/<template>')
 @login_required

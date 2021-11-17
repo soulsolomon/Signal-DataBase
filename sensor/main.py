@@ -1,9 +1,8 @@
-from os import system, name
 import time
 import  math
 import  random
-
 from datetime import datetime
+
 import config
 from SensorSimulator import SensorSimulator
 from database.MyDB import MyDB
@@ -19,29 +18,23 @@ def main():
     
     cnt = 0
     while(True):
-        
+
         signal = get_sine_wave(amplitude, cnt, noise_amp)
+        date_time = datetime.now()
         
-        for sensor in sensor_list:
-            date_time = datetime.now()
-            
+        for sensor in sensor_list:        
             save, signal = sensor.get_sensor_data(signal)
             
             if(save):
                 save_on_db(date_time, sensor.sensor_name, signal, sensor.remark)
-                #system('cls')
                 print_saved_data(date_time, sensor.sensor_name, signal, sensor.remark)
-            else:
-                # save_on_db(date_time, sensor.sensor_name, signal, "NOT SAVED")
-                pass
+        # end of for loop
         
-        time.sleep(.01)
+        time.sleep(.1)
         cnt += 1
         #if(cnt > 20):
         #    break
         
-    
-    #print_data()
 
 #------------------------------------------------------------------------------------------------------------------------
 
@@ -92,6 +85,9 @@ def print_saved_data(date_time, sensor_name, sensor_value, remark):
     print(saved_data)
 #------------------------------------------------------------------------------------------------------------------------
 
+
+# Test case
+# Print all data in the database
 def print_database():
     query = "SELECT * FROM log ORDER BY id ASC"
     

@@ -14,3 +14,10 @@ def getDistinctSensors():
     myDB = MyDB()
     result = myDB.execute_get_data_query(query)
     return result
+
+def getLogData(last_id = 0):
+    query = "SELECT date_time, sensor_name, sensor_value FROM LOG WHERE id > " + str(last_id)
+    
+    myDB = MyDB()
+    result = myDB.execute_get_data_query(query)
+    return result

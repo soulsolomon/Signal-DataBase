@@ -2,11 +2,10 @@ import config
 
 from database.MySQLite import MySQLite
 
-
 class MyDB(MySQLite):
 
     def __init__(self):
-        super().__init__(config.database["host"], config.database["user"], config.database["password"], config.database["port"], config.database["database"])
+        super().__init__()
 
     def execute_get_data_query(self, query):
         DBResult = super().execute(query)

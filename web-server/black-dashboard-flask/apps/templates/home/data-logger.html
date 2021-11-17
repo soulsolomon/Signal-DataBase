@@ -10,51 +10,68 @@
     <script>{{data[0]}}</script>
 
     <div class="row">
-      <div class="col-12">
-        <div class="card card-chart">
-          <div class="card-header ">
-            <div class="row">
-              <div class="col-sm-6 text-left">
-                <h5 class="card-category">Number of data: <span id="sensor01_numberofdata">{{data[1]}}</span></h5>
-                <h2 class="card-title">
-                  Sensor <button id="0" style="display:none">hi</button>
-                </h2>
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Number of data: <span id="sensor01_numberofdata">{{data[1]}}</span></h5>
+                    <h2 class="card-title">
+                      Sensor <button id="0" style="display:none">hi</button>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartBig1"></canvas>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="chartBig1"></canvas>
+
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Number of data: <span id="sensor02_numberofdata">{{data[2]}}</span></h5>
+                    <h2 class="card-title">
+                      Logged based on trigger 
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartBig2"></canvas>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    </div>
-
-<!-- --------------------------------------------------------------------------------------------------------------------- -->
-
-    <div class="row">
-      <div class="col-12">
-        <div class="card card-chart">
-          <div class="card-header ">
-            <div class="row">
-              <div class="col-sm-6 text-left">
-                <h5 class="card-category">Number of data: <span id="sensor02_numberofdata">{{data[2]}}</span></h5>
-                <h2 class="card-title">
-                  Logged based on trigger 
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="chartBig2"></canvas>
-            </div>
+      <div class="col-lg-4" >
+        <h2 class="card-title">Logged data</h2>
+        <div>
+          <style> .idList {width:150px; display:inline-block;}  .sensor02 {color:#d136d1}</style>
+          
+          <div><span class="idList"><b>Date and time</b></span><span><b>Value</b></span></div>
+          
+          <div style="height:600px; overflow:hidden" id="logData" >
+           
           </div>
         </div>
       </div>
     </div>
+
 
 <!-- --------------------------------------------------------------------------------------------------------------------- -->
 
@@ -105,6 +122,7 @@
 
 <script>
  
+  
   let sensor01_numberofdata = {{data[1]}};
   let sensor02_numberofdata = {{data[2]}};
 
@@ -114,7 +132,32 @@
 
     $.get("\\get-data?last=" + Sensor_01_lastID, function(data){
       changeValue(data);
-  });
+    });
+
+    $.get("\\get-log-data?last_id=" + Sensor_01_lastID, function(data){
+      uppendNewData(data);
+    });
+    
+  }
+
+  function uppendNewData(log_data){
+    
+    log_data = JSON.parse(log_data);
+
+    htmlStr = "";
+    if(log_data.length > 0){
+      for(let i=0; i < log_data.length; i++){
+        classStr = ""
+        if(log_data[i][1] == "Sensor 02")
+          classStr = " class=\"sensor02\""
+          
+        htmlStr += "<div" + classStr + '><span class="idList">' + log_data[i][0].substr(0,19) + '</span><span>' + log_data[i][2] +'</span></div>';
+      }
+
+      $("#logData").html( htmlStr + $("#logData").html());
+    }
+   
+
   }
 
   function changeValue(data){
@@ -122,15 +165,17 @@
     data = data.replace(/'/g,'"');
 
     data = JSON.parse(data);
-    emptyArr = [,];
-    
+        
     if(data["Sensor 01"].length > 0){
       for(let i=0; i < data["Sensor 01"].length; i++){
         
-        Sensor_01_xaxis.push('');
+        
         
         Sensor_01_yaxis.push(data["Sensor 01"][i][2]);
+        //Sensor_01_xaxis.push('');
+        Sensor_01_yaxis.shift();
         
+
         Sensor_01_lastID = data["Sensor 01"][i][0];
         sensor01_numberofdata++;
       }
@@ -140,8 +185,12 @@
 
     if(data["Sensor 02"].length > 0){
       for(let i=0; i < data["Sensor 02"].length; i++){
-        Sensor_02_xaxis.push('');
+        
+        //Sensor_02_xaxis.push('');
+
         Sensor_02_yaxis.push(data["Sensor 02"][i][2]);
+        Sensor_02_yaxis.shift();
+
         Sensor_02_lastID = data["Sensor 02"][i][0];
         sensor02_numberofdata++;
 
@@ -149,24 +198,13 @@
       $("#sensor02_numberofdata").html(sensor02_numberofdata);
     }
 
-    //alert(data["Sensor 01"].length );
-
-    //Sensor_01_xaxis = ['01', 'FEB', 'Mar', 'Apr', 'May'];
-    //Sensor_01_yaxis = [1,4,2,9,-2];
-  
-    console.log(data);
-
-    //Sensor_02_xaxis = ['JAN', 'FEB', 'Mar'];
-    //Sensor_02_yaxis = [1,4,2];
-
-    //Sensor_02_xaxis= Sensor_02_xaxis.concat(Sensor_02_xaxis);
-    //Sensor_02_yaxis= Sensor_02_yaxis.concat(Sensor_02_yaxis);
-
-    $("#0").click();
+    //console.log(data);
+    if( (data["Sensor 02"].length > 0) || (data["Sensor 01"].length > 0) ) 
+      $("#0").click();
      //alert("2");
   }
 
-  setInterval("getDataFromDB()", 1000);
+  setInterval("getDataFromDB()", 100);
 
 </script
 

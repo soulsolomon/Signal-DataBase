@@ -2,12 +2,8 @@ import sqlite3
 
 class MySQLite:
     
-    def __init__(self, host, user, password, port, database):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.port = port
-        self.database = database            
+    def __init__(self):
+        pass       
                             
     def getDbConnection(self):
         try:
