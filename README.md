@@ -11,7 +11,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
 <br />
 
 <p align="center">
-<img widith=600  src="./image.png">
+<img widith=600  src="./pix.png">
 <p>
 
   <br />
@@ -20,7 +20,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
  
 
-<img widith=1000  src="./pix.png">
+<img widith=1000  src="./image2.gif">
 
 
 
