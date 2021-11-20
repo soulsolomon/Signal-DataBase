@@ -73,7 +73,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
   
   ## Authors
   
-  Solomon Gugsa (private work)
+  Solomon Gugsa 
     
   Free Design Template used from Black Dashboard Flask - Provided by Creative Tim and AppSeed
   
