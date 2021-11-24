@@ -53,7 +53,7 @@ Quick, reliable data logging is a key requirement for tests from component chara
    1. change home directory to \sensor
    2. Run main.py
   
-  ## TASKS YET TO BE ACCOMPLISHED
+  ## TASKS ACCOMPLISHED
 
     Backend
     [Create and simulate Signals - Done!] 
